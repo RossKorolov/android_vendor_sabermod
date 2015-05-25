@@ -44,7 +44,7 @@ export EXTRA_SABERMOD_GCC_VECTORIZE_CFLAGS := \
   -mvectorize-with-neon-quad
 
 # Enable strict aliasing optimizations
-export ENABLE_STRICT_ALIASING := true
+export ENABLE_STRICT_ALIASING := false
 
 ifeq ($(strip $(ENABLE_STRICT_ALIASING)),true)
   LOCAL_DISABLE_STRICT_ALIASING := \
