@@ -40,3 +40,6 @@ export ENABLE_PTHREAD := false
 # Extra SaberMod GCC C flags for arch target and Kernel
 export EXTRA_SABERMOD_GCC_VECTORIZE_CFLAGS := \
   -ftree-vectorize
+
+# Enable strict aliasing optimizations
+export ENABLE_STRICT_ALIASING := true
