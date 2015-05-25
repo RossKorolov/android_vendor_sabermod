@@ -24,3 +24,7 @@ endif
 ifneq ($(filter %mako,$(TARGET_PRODUCT)),)
   include $(SM_VENDOR)/products/sm_mako.mk
 endif
+
+ifneq ($(filter %jflte,$(TARGET_PRODUCT)),)
+  include $(SM_VENDOR)/products/sm_jflte.mk
+endif
