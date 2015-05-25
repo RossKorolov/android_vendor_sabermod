@@ -32,14 +32,30 @@ GRAPHITE_FLAGS := \
 
 LOCAL_DISABLE_GRAPHITE += \
   libpdfiumcore \
-  libc_netbsd
+  libc_netbsd \
+  libncurses 
 
 # Do not enable pthread when graphite flags are set to handle threads
 export ENABLE_PTHREAD := false
 
 # Extra SaberMod GCC C flags for arch target and Kernel
 export EXTRA_SABERMOD_GCC_VECTORIZE_CFLAGS := \
-  -ftree-vectorize
+  -ftree-vectorize \
+  -mvectorize-with-neon-quad
 
 # Enable strict aliasing optimizations
 export ENABLE_STRICT_ALIASING := true
+
+ifeq ($(strip $(ENABLE_STRICT_ALIASING)),true)
+  LOCAL_DISABLE_STRICT_ALIASING := \
+    libstlport_static \
+    libcrypto_static \
+    gatt_testtool \
+    libssh \
+    mm-vdec-omx-test \
+    ssh \
+    libsurfaceflinger \
+    audio.primary.msm8960 \
+    lsof \
+    tcpdump
+endif
